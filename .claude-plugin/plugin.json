@@ -1,0 +1,135 @@
+{
+  "name": "done-waiting-ping",
+  "displayName": "Done & Waiting Ping",
+  "version": "0.1.0",
+  "description": "A desktop notification and/or a sound when a long Claude Code turn is done or when Claude is waiting on you (permission, question, plan). Native on Windows, also macOS and Linux. Choose popup, sound or both, done or waiting or both, and the sounds.",
+  "author": {
+    "name": "Adrien Moncade",
+    "url": "https://github.com/AMoncade"
+  },
+  "homepage": "https://github.com/AMoncade/done-waiting-ping-claudecode",
+  "repository": "https://github.com/AMoncade/done-waiting-ping-claudecode",
+  "license": "MIT",
+  "keywords": [
+    "notification",
+    "windows",
+    "toast",
+    "sound",
+    "done",
+    "waiting",
+    "permission",
+    "mod"
+  ],
+  "userConfig": {
+    "enabled": {
+      "type": "boolean",
+      "title": "Notifications on",
+      "description": "Turn every ping on or off. /ping on and /ping off do the same from the prompt.",
+      "default": true
+    },
+    "events": {
+      "type": "string",
+      "title": "What to ping for",
+      "description": "both: when a long turn is done and when Claude is waiting on you. done: finished turns only. waiting: permission prompts, questions and plans only.",
+      "options": [
+        "both",
+        "done",
+        "waiting"
+      ],
+      "default": "both"
+    },
+    "delivery": {
+      "type": "string",
+      "title": "How to ping",
+      "description": "popup+sound: a desktop notification with a sound. popup: the notification, silent. sound: just the sound, no popup.",
+      "options": [
+        "popup+sound",
+        "popup",
+        "sound"
+      ],
+      "default": "popup+sound"
+    },
+    "doneAfterSeconds": {
+      "type": "number",
+      "title": "Done: minimum time without you (seconds)",
+      "description": "A finished turn pings only when at least this long has passed since you last interacted: the start of the turn, or the last question or plan you answered (time waiting on a permission prompt counts as time away). 0 pings for every turn.",
+      "default": 60,
+      "min": 0,
+      "max": 86400
+    },
+    "doneSound": {
+      "type": "string",
+      "title": "Sound when done",
+      "description": "default, message, mail or reminder: your system's own notification sounds. custom: the file in 'Custom sound file (done)'. none: silent.",
+      "options": [
+        "default",
+        "message",
+        "mail",
+        "reminder",
+        "custom",
+        "none"
+      ],
+      "default": "default"
+    },
+    "waitingSound": {
+      "type": "string",
+      "title": "Sound when waiting",
+      "description": "default, message, mail or reminder: your system's own notification sounds. custom: the file in 'Custom sound file (waiting)'. none: silent.",
+      "options": [
+        "default",
+        "message",
+        "mail",
+        "reminder",
+        "custom",
+        "none"
+      ],
+      "default": "reminder"
+    },
+    "doneSoundFile": {
+      "type": "string",
+      "title": "Custom sound file (done)",
+      "description": "Full path of a sound file, used when 'Sound when done' is custom (a leading ~/ is your home folder). On Windows a PCM .wav (otherwise the default sound plays). Cut at 20 seconds.",
+      "default": ""
+    },
+    "waitingSoundFile": {
+      "type": "string",
+      "title": "Custom sound file (waiting)",
+      "description": "Full path of a sound file, used when 'Sound when waiting' is custom (a leading ~/ is your home folder). On Windows a PCM .wav (otherwise the default sound plays). Cut at 20 seconds.",
+      "default": ""
+    },
+    "idleReminder": {
+      "type": "boolean",
+      "title": "Idle reminder",
+      "description": "Also ping when Claude Code says it has been waiting for your next message for a while (its own idle notice). Off by default.",
+      "default": false
+    },
+    "showDetails": {
+      "type": "boolean",
+      "title": "Show details",
+      "description": "Show the tool of a permission prompt and the first line of Claude's question, as Claude wrote it (it can include file names or values; code is left out). Off: only the project name and what happened.",
+      "default": true
+    },
+    "quietWhenFocused": {
+      "type": "boolean",
+      "title": "Quiet while you are looking",
+      "description": "Skip the ping while one of the apps in 'Apps that count as looking' has the keyboard focus (macOS: also the terminal Claude Code runs in). Windows and macOS only. A focused terminal may be showing another tab.",
+      "default": false
+    },
+    "focusApps": {
+      "type": "string",
+      "title": "Apps that count as looking",
+      "description": "Comma-separated. Windows: process names (WindowsTerminal, Code, Cursor). macOS: bundle ids (com.apple.Terminal, com.googlecode.iterm2). Not used on Linux.",
+      "default": "WindowsTerminal, Code, Cursor"
+    },
+    "language": {
+      "type": "string",
+      "title": "Language",
+      "description": "Language of the notifications and of the /ping command: en (English) or fr (French).",
+      "options": [
+        "en",
+        "fr"
+      ],
+      "default": "en"
+    }
+  }
+}

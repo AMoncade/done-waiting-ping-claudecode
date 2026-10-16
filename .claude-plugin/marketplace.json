@@ -1,0 +1,17 @@
+{
+  "name": "done-waiting-ping",
+  "owner": {
+    "name": "Adrien Moncade",
+    "url": "https://github.com/AMoncade"
+  },
+  "metadata": {
+    "description": "done-waiting-ping: a notification and/or a sound when Claude Code is done or waiting on you. Native on Windows, also macOS and Linux."
+  },
+  "plugins": [
+    {
+      "name": "done-waiting-ping",
+      "source": "./",
+      "description": "A desktop notification and/or a sound when a long Claude Code turn is done or when Claude is waiting on you. Native on Windows, also macOS and Linux."
+    }
+  ]
+}
